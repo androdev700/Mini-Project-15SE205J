@@ -1,0 +1,16 @@
+Source : DEL
+Destination : LKO
+Airline : Indigo
+Flight Code : 6E - 6612
+Flight Time : 01h 05m
+Departure Time : 06:30
+Arrival Time : 07:35
+Index : 0
+Source : LKO
+Destination : BOM
+Airline : Jet Airways
+Flight Code : 9W - 852
+Flight Time : 02h 35m
+Departure Time : 17:30
+Arrival Time : 20:05
+Index : 1
