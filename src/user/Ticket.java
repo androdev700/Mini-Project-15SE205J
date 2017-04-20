@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package user;
 
 /**
@@ -35,142 +30,82 @@ public class Ticket {
         System.out.println(isCancelled ? "This flight is cancelled" : "This flight is scheduled");
     }
 
-    /**
-     * @return the emailId
-     */
     public String getEmailId() {
         return this.emailId;
     }
 
-    /**
-     * @param emailId the emailId to set
-     */
     public void setEmailId(String emailId) {
         this.emailId = emailId;
     }
 
-    /**
-     * @return the source
-     */
     public String getSource() {
         return this.source;
     }
 
-    /**
-     * @param source the source to set
-     */
     public void setSource(String source) {
         this.source = source;
     }
 
-    /**
-     * @return the destination
-     */
     public String getDestination() {
         return this.destination;
     }
 
-    /**
-     * @param destination the destination to set
-     */
     public void setDestination(String destination) {
         this.destination = destination;
     }
 
-    /**
-     * @return the airline
-     */
     public String getAirline() {
         return this.airline;
     }
 
-    /**
-     * @param airline the airline to set
-     */
     public void setAirline(String airline) {
         this.airline = airline;
     }
 
-    /**
-     * @return the flightCode
-     */
     public String getFlightCode() {
         return this.flightCode;
     }
 
-    /**
-     * @param flightCode the flightCode to set
-     */
     public void setFlightCode(String flightCode) {
         this.flightCode = flightCode;
     }
 
-    /**
-     * @return the flightTime
-     */
     public String getFlightTime() {
         return this.flightTime;
     }
 
-    /**
-     * @param flightTime the flightTime to set
-     */
     public void setFlightTime(String flightTime) {
         this.flightTime = flightTime;
     }
 
-    /**
-     * @return the departureTime
-     */
     public String getDepartureTime() {
         return this.departureTime;
     }
 
-    /**
-     * @param departureTime the departureTime to set
-     */
     public void setDepartureTime(String departureTime) {
         this.departureTime = departureTime;
     }
 
-    /**
-     * @return the arrivalTime
-     */
     public String getArrivalTime() {
         return this.arrivalTime;
     }
 
-    /**
-     * @param arrivalTime the arrivalTime to set
-     */
     public void setArrivalTime(String arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    /**
-     * @return the index
-     */
     public int getIndex() {
         return this.index;
     }
 
-    /**
-     * @param index the index to set
-     */
     public void setIndex(int index) {
         this.index = index;
     }
 
-    /**
-     * @return the isCancelled
-     */
     public boolean isCancelled() {
         return this.isCancelled;
     }
 
-    /**
-     * @param isCancelled the isCancelled to set
-     */
     public void setIsCancelled(boolean isCancelled) {
         this.isCancelled = isCancelled;
     }

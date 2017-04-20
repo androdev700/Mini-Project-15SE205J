@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package user;
 
 import fileProcessor.FileHandler;
-
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -15,7 +10,7 @@ import java.util.Scanner;
  */
 public class SignUp {
 
-    public void prepSignUp(int index) {
+    public void prepSignUp(int index) throws IOException, InputMismatchException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello New User!");
         System.out.println("Please provide in with your details so that can we "
@@ -36,10 +31,6 @@ public class SignUp {
         long mobileNumber = scanner.nextLong();
 
         FileHandler handler = new FileHandler();
-        try {
-            handler.signUp(index, title, firstName, lastName, emailId, address, password, mobileNumber);
-        } catch (IOException ex) {
-            ex.getMessage();
-        }
+        handler.signUp(index, title, firstName, lastName, emailId, address, password, mobileNumber);
     }
 }

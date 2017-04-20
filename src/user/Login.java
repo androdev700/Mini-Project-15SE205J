@@ -1,23 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package user;
 
 import androtravels.AndroTravels;
+import androtravels.Payment;
 import fileProcessor.FileHandler;
 import travel.City;
 import travel.Flight;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  * @author andro
  */
-public class Login {
+public class Login extends Payment.Portal implements Payment {
 
     private String title;
     private String firstName;
@@ -42,7 +39,7 @@ public class Login {
     public void userPortal(int index, ArrayList<Login> userList,
                            ArrayList<City> cityList,
                            ArrayList<Flight> flightList, ArrayList<Ticket> ticketList,
-                           FileHandler handler) throws IOException {
+                           FileHandler handler) throws IOException, InputMismatchException {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println(String.format("Welcome %s %s",
@@ -108,28 +105,31 @@ public class Login {
                         if (!flightFound) {
                             System.out.println("Sorry couldn't find any flight "
                                     + "in this route.");
-                            System.out.println("");
                         } else {
                             System.out.println("We found the following flights "
                                     + "in this route");
-                            System.out.println("");
+                            System.out.println();
                             for (int n : nFlights) {
                                 System.out.println(n + 1 + ".");
                                 flightList.get(n).printDetails();
+                                System.out.println();
                             }
                             System.out.println("Choose your flight");
-                            System.out.println("");
                             int selection = scanner.nextInt();
                             selection -= 1;
                             System.out.println("You have selected ..");
                             flightList.get(selection).printDetails();
-                            System.out.println("");
+                            System.out.println();
                             System.out.println("Do you wanna confirm this "
                                     + "flight?");
-                            String choice = scanner.nextLine();
+                            String choice = scanner.next();
                             choice = choice.toLowerCase();
                             if (choice.equals("yes") || choice.equals("y")) {
-
+                                prepPayment();
+                                System.out.println("Payment Completed.");
+                                handler.confirmTicket(flightList.get(selection), ticketList, userList.get(index));
+                            } else {
+                                System.out.println("Flight selection declined, select option 2 and try again.");
                             }
                         }
                     }
@@ -177,7 +177,7 @@ public class Login {
 
     public void performLogin(ArrayList<Login> userList, ArrayList<City> cityList,
                              ArrayList<Flight> flightList, ArrayList<Ticket> ticketList,
-                             FileHandler handler) throws IOException {
+                             FileHandler handler) throws IOException, InputMismatchException {
 
         boolean validUser = false;
         Scanner scanner = new Scanner(System.in);
@@ -205,6 +205,43 @@ public class Login {
                 userPortal(localIndex, userList, cityList, flightList, ticketList, handler);
             }
         }
+    }
+
+    @Override
+    public void prepPayment() throws ClassCastException, InputMismatchException {
+        Scanner sc = new Scanner(System.in);
+        boolean flag = false;
+        while (!flag) {
+            System.out.println("Enter 16 Digit Card Number");
+            String sample = sc.next();
+            if (sample.length() == 16) {
+                setCardNumber(Long.parseLong(sample));
+            } else {
+                System.out.println("Enter a valid card number");
+                continue;
+            }
+            System.out.println("Enter Expiry Month");
+            sample = sc.next();
+            if (sample.length() == 2) {
+                setExpiryMonth(Integer.parseInt(sample));
+            } else {
+                System.out.println("Enter a valid expiry month");
+                continue;
+            }
+            System.out.println("Enter Expiry Year");
+            sample = sc.next();
+            if (sample.length() == 2) {
+                setExpiryYear(Integer.parseInt(sample));
+            } else {
+                System.out.println("Enter a valid expiry year");
+                continue;
+            }
+            System.out.println("Enter your Name");
+            setName(sc.next());
+            flag = true;
+        }
+        System.out.println("Details Entered Successfully...");
+        System.out.println("Accessing payment gateway..");
     }
 
     public String getTitle() {

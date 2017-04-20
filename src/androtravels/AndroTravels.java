@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package androtravels;
 
 import fileProcessor.FileHandler;
@@ -11,15 +6,16 @@ import travel.Flight;
 import user.Login;
 import user.SignUp;
 import user.Ticket;
-
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  * TITLE -> FLIGHT BOOKING SYSTEM
  *
  * @author AYUSH SINGH [RA1511008010221] B.Tech IT
+ * @author NIKHIL SHAW [RA1511008010233] B.Tech IT
  * @version 1.0
  */
 public class AndroTravels {
@@ -27,7 +23,7 @@ public class AndroTravels {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InputMismatchException {
 
         try {
             for (int i = 0; i < 1; ++i) {

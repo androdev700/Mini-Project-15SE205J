@@ -6,6 +6,14 @@ Flight Time : 01h 05m
 Departure Time : 06:30
 Arrival Time : 07:35
 Index : 0
+Source : DEL
+Destination : LKO
+Airline : Air India
+Flight Code : AI - 412
+Flight Time : 01h 15m
+Departure Time : 08:30
+Arrival Time : 09:45
+Index : 1
 Source : LKO
 Destination : BOM
 Airline : Jet Airways
@@ -13,4 +21,60 @@ Flight Code : 9W - 852
 Flight Time : 02h 35m
 Departure Time : 17:30
 Arrival Time : 20:05
-Index : 1
+Index : 2
+Source : LKO
+Destination : BOM
+Airline : Go Air
+Flight Code : G8 - 396
+Flight Time : 02h 30m
+Departure Time : 17:45
+Arrival Time : 20:15
+Index : 3
+Source : MAA
+Destination : GAU
+Airline : Indigo
+Flight Code : 6E - 793
+Flight Time : 02h 45m
+Departure Time : 13:15
+Arrival Time : 16:00
+Index : 4
+Source : MAA
+Destination : GAU
+Airline : SpiceJet
+Flight Code : SG - 463
+Flight Time : 04h 45m
+Departure Time : 10:15
+Arrival Time : 14:00
+Index : 5
+Source : DEL
+Destination : MAA
+Airline : SpiceJet
+Flight Code : SG - 103
+Flight Time : 02h 50m
+Departure Time : 14:35
+Arrival Time : 17:25
+Index : 6
+Source : BLR
+Destination : CCU
+Airline : Indigo
+Flight Code : 6E - 714
+Flight Time : 02h 35m
+Departure Time : 18:30
+Arrival Time : 21:05
+Index : 7
+Source : BLR
+Destination : CCU
+Airline : Air India
+Flight Code : AI - 516
+Flight Time : 12h 55m
+Departure Time : 19:10
+Arrival Time : 08:05
+Index : 8
+Source : BLR
+Destination : CCU
+Airline : Indigo
+Flight Code : 6E - 714
+Flight Time : 02h 35m
+Departure Time : 18:30
+Arrival Time : 21:05
+Index : 9

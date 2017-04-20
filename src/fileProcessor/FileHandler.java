@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fileProcessor;
 
 import travel.City;
 import travel.Flight;
 import user.Login;
 import user.Ticket;
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -39,9 +33,31 @@ public class FileHandler {
         }
     }
 
-    public void confirmTicket() throws IOException {
-
-
+    public void confirmTicket(Flight flight, ArrayList<Ticket> ticketList, Login login) throws IOException {
+        int counter = 1;
+        for (Ticket t : ticketList) {
+            counter++;
+        }
+        try (FileWriter fw = new FileWriter("TicketList.txt", true);
+             BufferedWriter bw = new BufferedWriter(fw);
+             PrintWriter out = new PrintWriter(bw)) {
+            out.println();
+            out.println("Title : " + login.getTitle());
+            out.println("First Name : " + login.getFirstName());
+            out.println("Last Name : " + login.getLastName());
+            out.println("Email Id : " + login.getEmailId());
+            out.println("Source : " + flight.getSource());
+            out.println("Destination : " + flight.getDestination());
+            out.println("Airline : " + flight.getAirline());
+            out.println("Flight Code : " + flight.getFlightCode());
+            out.println("Flight Time : " + flight.getFlightTime());
+            out.println("Departure Time : " + flight.getDepartureTime());
+            out.println("Arrival Time : " + flight.getArrivalTime());
+            out.println("Cancelled : No");
+            out.println("Index : " + counter);
+        } finally {
+            System.out.println("Congratulations, Flight Booked Successfully!");
+        }
     }
 
     public ArrayList<Login> readUser() throws IOException {
@@ -84,7 +100,6 @@ public class FileHandler {
         } finally {
             System.out.println("Reading users done...");
         }
-
         return userList;
     }
 

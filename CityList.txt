@@ -4,4 +4,5 @@ Bengaluru BLR
 Mumbai BOM
 Delhi DEL
 Kolkata CCU
+Guwahati GAU
 Visakhapatnam VTZ 
