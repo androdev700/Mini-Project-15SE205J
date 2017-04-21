@@ -53,6 +53,7 @@ public class Login extends Payment.Portal implements Payment {
         System.out.println("5. Logout");
 
         while (true) {
+            System.out.println();
             System.out.print("Enter Your Choice : ");
             int menuChoice = scanner.nextInt();
             switch (menuChoice) {
@@ -144,6 +145,7 @@ public class Login extends Payment.Portal implements Payment {
                     }
                     for (Integer i : nTickets) {
                         ticketList.get(i - 1).printDetails();
+                        System.out.println();
                     }
                     break;
                 case 4:

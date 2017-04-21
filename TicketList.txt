@@ -53,3 +53,16 @@ Departure Time : 06:30
 Arrival Time : 07:35
 Cancelled : No
 Index : 4
+Title : Mr.
+First Name : Ayush
+Last Name : Singh
+Email Id : androdev700@gmail.com
+Source : DEL
+Destination : LKO
+Airline : Air India
+Flight Code : AI - 412
+Flight Time : 01h 15m
+Departure Time : 08:30
+Arrival Time : 09:45
+Cancelled : No
+Index : 5
