@@ -1,14 +1,20 @@
+/*
+Payment.java
+(Interface for payement function and class Portal to store card details)
+*/
+
 package androtravels;
 
 /**
- * Created by andro on 20/04/17.
+ * Created by andro,nikhil on 20/04/17.
  */
 public interface Payment {
 
-    abstract void prepPayment();
+    abstract void prepPayment();        // Driver function for payment
 
     class Portal {
 
+        // Card details
         private long cardNumber;
         private int expiryMonth;
         private int expiryYear;

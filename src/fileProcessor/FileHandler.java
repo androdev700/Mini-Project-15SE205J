@@ -1,3 +1,16 @@
+/*
+FileHandler.java
+(defined functions to initialize ARRAYLISTS: userList, cityList, flightList, ticketList)
+FUNCTIONS:
+* public void signUp(int index, String title, String firstName, String lastName,
+                       String emailId, String address, String password, long mobileNumber)
+* public void confirmTicket(Flight flight, ArrayList<Ticket> ticketList, Login login)
+* public ArrayList<Login> readUser()
+* public ArrayList<City> readCities()
+* public ArrayList<Flight> readFlights()
+* public ArrayList<Ticket> readTickets()
+*/
+
 package fileProcessor;
 
 import travel.City;
@@ -8,17 +21,20 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * @author andro
+ * @author andro/nikhil
  */
 public class FileHandler {
+
+    // Function signUp to create account for nmew users and store it in UserList.txt
 
     public void signUp(int index, String title, String firstName, String lastName,
                        String emailId, String address, String password, long mobileNumber)
             throws IOException {
 
-        try (FileWriter fw = new FileWriter("UserList.txt", true);
+        try (FileWriter fw = new FileWriter("UserList.txt", true); // access UserList.txt
              BufferedWriter bw = new BufferedWriter(fw);
              PrintWriter out = new PrintWriter(bw)) {
+            // Write the new user details
             out.println(Integer.toString(index) + ".");
             out.println("Title : " + title);
             out.println("First Name : " + firstName);
@@ -33,6 +49,8 @@ public class FileHandler {
         }
     }
 
+    //Function confirmTicket to book tickets and store it in TicketList.txt
+
     public void confirmTicket(Flight flight, ArrayList<Ticket> ticketList, Login login) throws IOException {
         int counter = 1;
         for (Ticket t : ticketList) {
@@ -41,6 +59,7 @@ public class FileHandler {
         try (FileWriter fw = new FileWriter("TicketList.txt", true);
              BufferedWriter bw = new BufferedWriter(fw);
              PrintWriter out = new PrintWriter(bw)) {
+            // Write ticket details into file
             out.println();
             out.println("Title : " + login.getTitle());
             out.println("First Name : " + login.getFirstName());
@@ -59,6 +78,8 @@ public class FileHandler {
             System.out.println("Congratulations, Flight Booked Successfully!");
         }
     }
+
+    // Function readUser to check and retrieve info about existing users
 
     public ArrayList<Login> readUser() throws IOException {
         ArrayList<Login> userList;
@@ -103,6 +124,8 @@ public class FileHandler {
         return userList;
     }
 
+    // Function readCities to check and retrieve info about cities stored in CityList.txt
+
     public ArrayList<City> readCities() throws IOException {
         ArrayList<City> cityList;
         try {
@@ -122,6 +145,8 @@ public class FileHandler {
         }
         return cityList;
     }
+
+    // Function readFlights to check and retrieve info about flights from FlightList.txt
 
     public ArrayList<Flight> readFlights() throws IOException {
         ArrayList<Flight> flightList;
@@ -157,6 +182,8 @@ public class FileHandler {
         }
         return flightList;
     }
+
+    // Function readUser to check and retrieve info about existing booked tickets from TicketList.txt
 
     public ArrayList<Ticket> readTickets() throws IOException {
         ArrayList<Ticket> ticketList;

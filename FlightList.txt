@@ -70,11 +70,3 @@ Flight Time : 12h 55m
 Departure Time : 19:10
 Arrival Time : 08:05
 Index : 8
-Source : BLR
-Destination : CCU
-Airline : Indigo
-Flight Code : 6E - 714
-Flight Time : 02h 35m
-Departure Time : 18:30
-Arrival Time : 21:05
-Index : 9

@@ -1,3 +1,10 @@
+/*
+SignUp.java
+(Menu to create a new account)
+FUNCTIONS:
+* public void prepSignUp(int index)
+*/
+
 package user;
 
 import fileProcessor.FileHandler;
@@ -31,6 +38,7 @@ public class SignUp {
         long mobileNumber = scanner.nextLong();
 
         FileHandler handler = new FileHandler();
+        // call handler.signUp to wriet ti UserList.txt
         handler.signUp(index, title, firstName, lastName, emailId, address, password, mobileNumber);
     }
 }

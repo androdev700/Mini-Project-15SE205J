@@ -1,3 +1,10 @@
+/*
+AndroTravels.java
+( Driver Java File )
+FUNCTIONS:
+* public static void main(String[] args)
+*/
+
 package androtravels;
 
 import fileProcessor.FileHandler;
@@ -40,26 +47,27 @@ public class AndroTravels {
 
         Scanner scanner = new Scanner(System.in);
         FileHandler handler = new FileHandler();
+        // Initializing containers from fileProcessor/Filehandler.java
         ArrayList<Login> userList = handler.readUser();
         ArrayList<City> cityList = handler.readCities();
         ArrayList<Flight> flightList = handler.readFlights();
         ArrayList<Ticket> ticketList = handler.readTickets();
 
-        System.out.println("Welcome to andro Flight booking system");
+        System.out.println("Welcome to andro-nik Flight booking system");
         System.out.println("Are you an existing customer ?");
 
-        while (true) {
+        while (true) {                              // continue user login/signup till choice is false
             String choice = scanner.nextLine();
             choice = choice.toLowerCase();
             switch (choice) {
                 case "yes":
                 case "y":
-                    Login l = new Login();
+                    Login l = new Login();          // Login for existing users 
                     l.performLogin(userList, cityList, flightList, ticketList, handler);
                     break;
                 case "no":
                 case "n":
-                    SignUp signUp = new SignUp();
+                    SignUp signUp = new SignUp();   // Signup for new users
                     signUp.prepSignUp(userList.size() + 1);
                     userList = handler.readUser();
                     choice = "yes";

@@ -1,3 +1,19 @@
+/*
+Login.java
+(for login, accessing user details, verification of user and payement)
+FUNCTIONS:
+* public void accountDetails(Login user)
+* public boolean verifyUser(String emailId, String password)
+* public void userPortal(int index, ArrayList<Login> userList,
+                           ArrayList<City> cityList,
+                           ArrayList<Flight> flightList, ArrayList<Ticket> ticketList,
+                           FileHandler handler) throws IOException, InputMismatchException {
+* public void performLogin(ArrayList<Login> userList, ArrayList<City> cityList,
+                             ArrayList<Flight> flightList, ArrayList<Ticket> ticketList,
+                             FileHandler handler) throws IOException, InputMismatchException {
+* public void prepPayment()
+*/
+
 package user;
 
 import androtravels.AndroTravels;
@@ -12,10 +28,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * @author andro
+ * @author andro/nikhil
  */
 public class Login extends Payment.Portal implements Payment {
 
+    // data members to store user details
     private String title;
     private String firstName;
     private String lastName;
@@ -25,17 +42,18 @@ public class Login extends Payment.Portal implements Payment {
     private long mobileNumber;
     private int index;
 
-    public void accountDetails(Login user) {
+    public void accountDetails(Login user) {    // Prints account details
         System.out.println(String.format("%s %s %s", user.getTitle(), user.getFirstName(), user.getLastName()));
         System.out.println(String.format("Email Id : %s", user.getEmailId()));
         System.out.println(String.format("Address : %s", user.getAddress()));
         System.out.println(String.format("Mobile Number : %s", user.getMobileNumber()));
     }
 
-    public boolean verifyUser(String emailId, String password) {
+    public boolean verifyUser(String emailId, String password) {    // Verify user using password and username
         return (this.getEmailId().equalsIgnoreCase(emailId) && this.getPassword().equals(password));
     }
 
+    // Menu for users for various activities
     public void userPortal(int index, ArrayList<Login> userList,
                            ArrayList<City> cityList,
                            ArrayList<Flight> flightList, ArrayList<Ticket> ticketList,
@@ -46,7 +64,7 @@ public class Login extends Payment.Portal implements Payment {
                 userList.get(index).getTitle(),
                 userList.get(index).getLastName()));
 
-        System.out.println("1. View/Edit your account details");
+        System.out.println("1. View your account details");
         System.out.println("2. Book a flight");
         System.out.println("3. View booked flights");
         System.out.println("4. Check flight status");
@@ -104,11 +122,9 @@ public class Login extends Payment.Portal implements Payment {
                             }
                         }
                         if (!flightFound) {
-                            System.out.println("Sorry couldn't find any flight "
-                                    + "in this route.");
+                            System.out.println("Sorry couldn't find any flight in this route.");
                         } else {
-                            System.out.println("We found the following flights "
-                                    + "in this route");
+                            System.out.println("We found the following flights in this route");
                             System.out.println();
                             for (int n : nFlights) {
                                 System.out.println(n + 1 + ".");
@@ -149,34 +165,26 @@ public class Login extends Payment.Portal implements Payment {
                     }
                     break;
                 case 4:
-                    String choice = "yes";
-                    while (choice.equalsIgnoreCase("yes") || choice.equalsIgnoreCase("y")) {
-                        System.out.print("Enter flight code : ");
-                        String code = scanner.next();
-                        flightFound = false;
-                        for (Flight f : flightList) {
-                            if (f.getFlightCode().equals(code)) {
-                                f.printDetails();
-                                flightFound = true;
-                            }
+                    System.out.print("Enter flight code : ");
+                    int a = scanner.nextInt();
+                    System.out.println(a);
+                    for (Flight f : flightList) {
+                        if (f.getFlightCode().endsWith(Integer.toString(a))) {
+                            f.printDetails();
                         }
-                        System.out.println(flightFound ? "" : "Flight not found");
-                        System.out.println("Search again? Yes/No");
-                        choice = scanner.next();
                     }
                     break;
                 case 5:
                     System.out.println("Logged out!, Do you want to login again?");
-                    AndroTravels travels = new AndroTravels();
                     String[] args = new String[2];
-                    travels.main(args);
+                    AndroTravels.main(args);
                     break;
                 default:
                     break;
             }
         }
     }
-
+    // Login menu to check for existing user
     public void performLogin(ArrayList<Login> userList, ArrayList<City> cityList,
                              ArrayList<Flight> flightList, ArrayList<Ticket> ticketList,
                              FileHandler handler) throws IOException, InputMismatchException {
@@ -209,7 +217,7 @@ public class Login extends Payment.Portal implements Payment {
         }
     }
 
-    @Override
+    @Override  // Menu for payement gateway
     public void prepPayment() throws ClassCastException, InputMismatchException {
         Scanner sc = new Scanner(System.in);
         boolean flag = false;

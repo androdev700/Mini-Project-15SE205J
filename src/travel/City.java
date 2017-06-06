@@ -1,3 +1,8 @@
+/*
+City.java
+(Class City to hold city details )
+*/
+
 package travel;
 
 /**
@@ -5,8 +10,8 @@ package travel;
  */
 public class City {
 
-    private String name;
-    private String code;
+    private String name; // name of the city
+    private String code; // respective code of the city
 
     public String getName() {
         return name;

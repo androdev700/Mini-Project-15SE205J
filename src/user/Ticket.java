@@ -1,3 +1,10 @@
+/*
+Ticket.java
+(Use to print ticket details)
+FUNCTIONS:
+* public void printDetails()
+*/
+
 package user;
 
 /**
@@ -19,7 +26,7 @@ public class Ticket {
     private int index;
     private boolean isCancelled;
 
-    public void printDetails() {
+    public void printDetails() { // Print details of the booked flights if any
         System.out.println("We found the following bookings made by you..");
         System.out.println(String.format("Flight %s %s from %s to %s",
                 this.airline, this.flightCode, this.source, this.destination));

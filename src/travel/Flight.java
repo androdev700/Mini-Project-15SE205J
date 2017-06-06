@@ -1,7 +1,12 @@
+/*
+Flight.java
+(Class Flight to hold flight details)
+*/
+
 package travel;
 
 /**
- * @author andro
+ * @author andro/nikhil
  */
 public class Flight {
 
